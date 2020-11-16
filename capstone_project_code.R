@@ -40,10 +40,8 @@ remDr %>%
   findElement(using = "name", value = "q")
 
 # Instead we have to use the RSelenium standard notation.
-binman::rm_platform("phantomjs")
-wdman::selenium(retcommand = TRUE)
-
-remDr <- RSelenium::rsDriver(browser="firefox", port=4445L)$client
+rD <- rsDriver(browser="firefox", port=4445L, verbose=F)
+remDr <- rD[["client"]]
 
 comp_stock_code <- vector(mode = "character", length = length(comp_empl))
 
